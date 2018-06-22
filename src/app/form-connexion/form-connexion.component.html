@@ -1,0 +1,18 @@
+<form #f="ngForm" (ngSubmit)="connecterUser(f.value)">
+    <div class="row">
+
+      <label style="font-size:20px"><b>Login</b></label>
+      <div class="input-field col s12">
+        <input type="email" name="email" ngModel placeholder="E-mail"  type="text" class="validate">
+      </div>
+
+      <label style="font-size:20px"><b>Mot de passe</b></label>
+      <div class="input-field col s12">
+          <input type="password" placeholder="E-mail" ngModel name="pwd" required="required"   class="validate">
+      </div>
+
+    </div>
+      <div class="row">
+        <button type="submit"  class="waves-effect waves-light btn col s6 m3">Connexion</button>
+      </div>
+    </form>

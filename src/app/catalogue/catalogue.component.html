@@ -1,0 +1,166 @@
+<head>
+   <!-- Bootstrap core CSS -->
+   <link href="assets/catalogueTemp_fichiers/bootstrap.css" rel="stylesheet">
+   <!-- Custom styles for this template -->
+   <link href="assets/catalogueTemp_fichiers/css.css" rel="stylesheet" type="text/css">
+   <!-- <link href="assets/catalogueTemp_fichiers/font-awesome.css" rel="stylesheet"> -->
+   <link href="assets/catalogueTemp_fichiers/style.css" rel="stylesheet">
+   <link href="assets/catalogueTemp_fichiers/responsive.css" rel="stylesheet">
+</head>
+
+<!-- Recherche -->
+    <div>
+      <app-recherche  (pipeArgs)="pipeArgs($event)"></app-recherche>
+    </div>
+
+    <!-- begin:content -->
+    <div id="content" *ngIf="!choisirBien">
+
+
+<!-- begin:service -->
+    <div id="service">
+        <div class="container">
+          <div class="row" style="position:absolute;top:8px;left:480px">
+            <div class="col-md-12">
+              <h2>À propos de Keur Gui Immo...<small>Nous sommes les spécialistes de l'immobilier</small></h2>
+            </div>
+          </div>
+          <div class="row-lg-12">
+            <div class="col-lg-4">
+              <div class="service-container">
+                <div class="service-icon">
+                  <a href="#"><i class="fa fa-home"></i></a>
+                </div>
+                <div class="service-content">
+                  <h3>Qui sommes nous</h3>
+                  <p>Cher nous,faites louer ou vendre vos biens immobiliers.</p>
+                </div>
+              </div>
+            </div>
+            <!-- break -->
+        
+            <div class="col-lg-4">
+              <div class="service-container">
+                <div class="service-icon">
+                  <a href="#"><i class="fa fa-umbrella"></i></a>
+                </div>
+                <div class="service-content">
+                  <h3>Nos services</h3>
+                  <p>Gérer un bien immobilier, c’est aborder de nombreux domaines d’expertises complexes.<br>
+                    100% des frais de gestion locative sont déductibles de vos revenus fonciers alors n'hesitez pas !</p>
+                </div>
+              </div>
+            </div>
+            <!-- break -->
+
+            <div class="col-lg-4">
+                <div class="service-container">
+                  <div class="service-icon">
+                    <a href="#"><i class="fa fa-thumbs-up"></i></a>
+                  </div>
+                  <div class="service-content">
+                    <h3>Nous contacter</h3>
+                    <p>Teléphone : 775214452  Mail: keur gui @gmail.com</p>
+                  </div>
+                </div>
+              </div>
+              <!-- break -->
+
+          </div>
+        </div>  
+      </div>
+<!-- end:service -->
+  <hr>
+  <hr>
+  
+        <div class="container">
+          <!-- begin:latest -->
+          <div class="row" style="margin-top:0px">
+            <div class="col-md-12">
+              <div class="heading-title">
+                <h2>CATALOGUE DE BIENS</h2>
+              </div>
+            </div>
+          </div>
+  <hr>        
+          <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12" *ngFor="let b of listeBiens | search:args:pipeArgId | paginate: { itemsPerPage: 4, currentPage: p}">
+              <div class="property-container card">
+                <div class="property-image">
+                  <img src="assets/catalogueTemp_fichiers/img02.jpg" alt="arillo real estate theme">
+                  <div class="property-price">
+                    <h4>{{b.nombien}}</h4>
+                    <span>prix : {{b.prixloction | currency:'EUR'}}Fcfa</span>
+                  </div>
+                  <div class="property-status">
+                    <button class="btn btn-success btn-sm" (click)='reserverBien(b.id)'>Details >></button>
+                  </div>
+                </div>
+                <div class="property-features">
+                  <span><i class="fa fa-home"></i>Localité : {{b.idlocalite.libellelocalite}}<sup></sup></span>
+                </div>
+                <div class="property-content">
+                  <h3><a href="#">Description</a><small>{{b.descriptionbien}}</small></h3>
+                </div>
+              </div>
+            </div>
+         
+            <!-- break --> 
+            <pagination-controls (pageChange)="p = $event"></pagination-controls> 
+          </div>
+          <!-- end:latest -->
+        </div>
+        </div>
+
+
+        <!--Reservation de biens-->
+        <div class = "container"  *ngIf="choisirBien">
+        <div class="row"  style="margin-top:45px">
+            <div class="col-md-12">
+              <div class="heading-title">
+                <h2>RESERVER LE BIEN</h2>
+              </div>
+            </div>
+          </div>
+
+<div class="row-lg-12">
+<!--Debut détails bien-->
+<div class="card">
+    <div class="col-lg-6">
+        <app-details> </app-details>
+        <div class="row" style="margin-top:5px">
+          <ul class="collection" *ngIf="bien">
+            <li class="collection-item">{{bien.id}}</li>
+            <li class="collection-item">{{bien.nombien}}</li>
+            <li class="collection-item">{{bien.idlocalite.libellelocalite}}</li>
+            <li class="collection-item">{{bien.idtypebien.libelletypebien}}</li>
+          </ul>    
+        </div>
+</div>
+
+    
+</div>
+<div class="col-lg-6">
+    <mat-card>
+        <mat-card-content>
+          <!-- <button class="btn btn-sm" style="color:#00897b" (click)="retour()">Retour</button> -->
+          <h2 class="example-h2">Formulaires</h2>
+          <mat-tab-group class="demo-tab-group">
+            <mat-tab style="background-color: #00897b" label="Inscription">
+              <div class="demo-tab-content">
+                <app-form-inscription></app-form-inscription>
+              </div>
+            </mat-tab>
+      
+            <mat-tab style="background-color: #00897b" label="Connexion">
+              <div class="demo-tab-content">
+              <app-form-connexion></app-form-connexion>
+              </div>  
+            </mat-tab>
+            </mat-tab-group>
+      </mat-card-content>
+    </mat-card>
+</div>
+      <!-- </div></div>-->
+</div>
+      <!-- end:content -->

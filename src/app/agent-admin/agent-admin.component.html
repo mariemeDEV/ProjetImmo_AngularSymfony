@@ -1,0 +1,70 @@
+<div class="container-fluid" >
+    <div class="row" style="position:absolute;right:50px">
+      </div>
+    <!-- <span class="fa fa-search"  style="color:#2bbbad"></span> -->
+    <div class="row" style="margin-top:90px"  *ngIf="reservations">
+        <div class="col s4">
+          <ul class="collection" style="width:400px;border-right:2px solid green">
+            <li class="collection-item action"><span class="fa fa-edit"       style="color:orange"></span>          Ajouter une réservation</li>
+            <li class="collection-item action"><span class="fa fa-file-pdf-o" style="color:orange"></span>    Génerer contrat réservation</li>
+          </ul>
+        </div>
+
+        <div class="col s8">
+          <table id="table_id" class="display">
+            <thead>
+              <tr>
+                <th>Nom client</th>
+                <th>Libelle du bien</th>
+                <th>Date réservation du bien</th>
+                <th>Image</th>
+                <th>Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let r of listeReservations">
+                  <td>{{r.client.nom_complet}}</td>
+                  <td>{{r.bien.nombien}}</td>
+                  <td>{{r.date_reservation  | date:'fullDate'}}</td>
+                  <td><img src="assets/catalogueTemp_fichiers/img02.jpg" style="width:70px"></td>
+                  <a><span class="fa fa-check" style="color:green;margin-right:20px" (click)="infosClient(r)" ></span></a>
+                </tr>
+              </tbody>
+          </table> 
+        </div>
+      </div>
+      <div class="container"  *ngIf="valideContrat">
+        <div class="row">
+          <h1>Validation reservation</h1>
+          <div class="row">
+            <ul class="collection" style="border-right:2px solid green">
+              <li class="collection-item">   <b>Nom Client</b>              :          {{client.client.nom_complet}}</li>
+              <li class="collection-item">   <b>date de résèrvation</b>     :          {{client.date_reservation   | date:'fullDate'}}</li>
+              <li class="collection-item">   <b>Mensualité </b>             :          {{client.bien.prixloction}}</li>
+              <li class="collection-item">   <b>Total</b>                   :          {{caution}}</li>
+              <li class="collection-item">
+                <div class="form-group">
+                  <!--erthjk-->
+                  <div id="pdfContent" #pdfContent>Un état des lieux contradictoire sera établi lors de la remise des clés au locataire et sera annexé au présent bail. Dans le mois qui suit la date de prise d’effet du contrat, le locataire peut apporter des précisions sur l’état des lieux. Le bailleur doit pouvoir répondre et constater la véracité de ces précisions. À défaut d’état des lieux, la présomption établie par l’article 1731 du code civil, tel qu’applicable en Polynésie française, ne pourra être invoquée par celle des parties qui aura fait obstacle à l’établissement de l’état des lieux. En fin de bail, lors de la restitution des clefs, un état des lieux de sortie sera à nouveau établi contradictoirement.</div>
+                  <div class="row">
+                    <p>
+                      <label>
+                        <input name="group1" type="radio" (click)="activeSave()"  />
+                        <span>Accepter les termes du contrat</span>
+                      </label>
+                    </p>
+                    <p>
+                      <label>
+                        <input name="group1" type="radio" (click)="desactiveSave()"  checked/>
+                        <span>Refuser les termes du contrat</span>
+                      </label>
+                    </p>
+                  </div>
+                  <button (click)="downloadPDF()" class="btn btn-primary" [disabled]="buttonStatus">Générer contrat</button>
+                </div> 
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>  
+</div>

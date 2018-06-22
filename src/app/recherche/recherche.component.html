@@ -1,0 +1,45 @@
+<head>
+    <!-- Bootstrap core CSS -->
+    <link href="assets/catalogueTemp_fichiers/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="assets/catalogueTemp_fichiers/css.css" rel="stylesheet" type="text/css">
+    <link href="assets/catalogueTemp_fichiers/font-awesome.css" rel="stylesheet">
+    <link href="assets/catalogueTemp_fichiers/style.css" rel="stylesheet">
+    <link href="assets/catalogueTemp_fichiers/responsive.css" rel="stylesheet">
+ </head>
+
+  <!-- begin:header -->
+  <div id="header" class="header-slide" style="position: relative; z-index: 0; background: rgba(0, 0, 0, 0) none repeat scroll 0% 0%;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-5">
+            <div class="quick-search">
+              <div class="row">
+                <form #form="ngForm">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                      <!-- <button type="btn" (click)="getTest()">Tester</button> -->
+                  <div class="row"><h4>Recherche de biens immobiliers</h4></div>
+                    <div class="form-group">
+                      <label style="font-size:15px"><b>Localités</b></label>
+                      <select name="localite" ngModel class="form-control" style="width:350px" (change) = "getArgsSearch(form.value.localite,'Localite')">
+                        <option *ngFor="let l of localites" [value]="l.id">{{ l.libellelocalite }}</option>
+                      </select>
+                    </div>  
+                    <div class="form-group">
+                      <label style="font-size:15px"><b>Types</b></label>
+                        <select name="type" ngModel class="form-control" style="width:350px"  (change) = "getArgsSearch(form.value.type,'TypeBien')">
+                          <option *ngFor="let t of typeBiens" [value]="t.id">{{ t.libelletypebien }}</option>
+                        </select>
+                     </div>
+                  </div>
+                 <!-- <div class="row"><input type="submit" value="Search" class="btn btn-primary" style="position:absolute;top:350px;left:40px"></div> -->
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    <div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; z-index: -999998; position: absolute; width: 1366px; height: 538px;"><img style="position: absolute; margin: 0px; padding: 0px; border: medium none; max-height: none; max-width: none; z-index: -999999; width: 1366px; height: 843.505px; left: 0px; top: -152.753px;" src="assets/catalogueTemp_fichiers/bg01.jpg"></div></div>
+
+    <!-- end:header -->

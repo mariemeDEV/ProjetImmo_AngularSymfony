@@ -1,0 +1,33 @@
+<div class container>
+<!-- method="post" #regForm="ngForm" (ngSubmit)="onSubmit(regForm.value,'form1')" -->
+  <form method="post" #formulaire="ngForm" (ngSubmit)="reserver(formulaire.value)">
+    <label><b style="font-size:20px">Prenom et nom</b></label>
+    <input type="text" placeholder="Prénom" required="required" ngModel name="nomComplet" class="validate">
+    <span class="helper-text" data-error="wrong" data-success="right"></span>
+
+    <label><b style="font-size:20px">Numéro piece</b></label>
+    <input type="number" placeholder="Numero piéce" required="required" ngModel name="numPiece" class="validate">
+    <span class="helper-text" data-error="wrong" data-success="right"></span>
+
+    <label><b style="font-size:20px">adresse</b></label>
+    <input type="text" placeholder="Adresse" required="required" ngModel name="adresse" class="validate">
+    <span class="helper-text" data-error="wrong" data-success="right"></span>
+
+    <label><b style="font-size:20px">télèphone</b></label>
+    <input type="number" placeholder="Adresse" required="required" ngModel name="telephone" class="validate">
+    <span class="helper-text" data-error="wrong" data-success="right"></span>
+
+    <label><b style="font-size:20px">Mail</b></label>
+    <input type="email" placeholder="E-mail" required="required" ngModel name="email"  class="validate">
+    <span class="helper-text" data-error="wrong" data-success="right"></span>
+
+     <label><b style="font-size:20px">Mot de passe</b></label>
+    <input type="password" placeholder="E-mail" required="required" ngModel name="password" class="validate">
+    <span class="helper-text" data-error="wrong" data-success="right"></span>
+
+    <button type="submit" class="waves-effect waves-light btn col s6 m3">Résèrver</button>
+  </form>
+</div>
+
+
+        

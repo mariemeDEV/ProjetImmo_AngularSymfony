@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+      <form>
+        <input type="text" style="width:160px">
+        <button class="btn btn-xs">Chercher</button>
+      </form>
+  </div>
+  <div class="row-lg-12">
+    <h3>La liste de vos reservations</h3>
+    
+    <table class="highlight responsive centered">
+      <thead>
+        <tr>
+          <th>Date de résèrvation</th>
+          <th>Bien résèrvé</th>
+          <th>Etat de la résèrvation</th>
+          <th>Voir détails contrat...</th>
+        </tr>
+      </thead>
+      <tr>
+        <td>21-04-2018</td>
+        <td>Appartememnt B</td>
+        <td></td>
+        <button class="waves-effect waves-light btn-small" (click)="generatePDF()">Contrat</button>
+      </tr>
+    </table>
+  </div>
+</div>

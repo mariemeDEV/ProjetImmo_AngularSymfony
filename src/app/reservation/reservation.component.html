@@ -1,0 +1,83 @@
+<head>
+  <!-- Bootstrap core CSS -->
+  <link href="assets/catalogueTemp_fichiers/bootstrap.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="assets/catalogueTemp_fichiers/css.css" rel="stylesheet" type="text/css">
+  <!-- <link href="assets/catalogueTemp_fichiers/font-awesome.css" rel="stylesheet"> -->
+  <link href="assets/catalogueTemp_fichiers/style.css" rel="stylesheet">
+  <link href="assets/catalogueTemp_fichiers/responsive.css" rel="stylesheet">
+</head>
+  <body>
+  <div class="row-lg-12">
+
+<!--Debut détails bien-->
+    <div class="col-lg-6">
+      <app-details></app-details>
+    </div>
+<!--Fin détails bien-->
+
+    <div class="col-lg-6">
+      <ul class="tabs tabs-fixed-width tab-demo z-depth-1">
+        <li class="tab"><a href="#test1" style="color:#00897b "><b>Connexion</b></a></li>
+        <li class="tab"><a class="active" href="#test2" style="color:#00897b "><b>Inscription</b></a></li>
+      </ul>
+      <div id="test1" class="col s12">
+          <div class="card">
+              <div class="card-header"><h3>Formulaire de résèrvation</h3></div>
+              <div class="card-content">
+        <!--formulaire de résèrvation-->        
+                    <form #f="ngForm" (ngSubmit)="reserverBien(f.value)">
+                      <div class="row">
+                        <label>Prénom</label>
+                        <div class="input-field col s12">
+                          <input name="nomComplet" ngModel placeholder="Prenom" id="first_name" type="text" class="validate">
+                        </div>
+                      </div>
+                      <div class="row">
+                          <label>Nom</label>
+                        <div class="input-field col s12">
+                          <input name="numPiece" ngModel placeholder="Nom" id="first_name" type="text" class="validate">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <label>Numéro de piéce</label>
+                        <div class="input-field col s12">
+                          <input name="telephone" ngModel placeholder="Numéro de piece" id="first_name" type="text" class="validate">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <label>Adresse</label>
+                        <div class="input-field col s12">
+                          <input name="adresse" ngModel placeholder="Adresse" id="first_name" type="text" class="validate">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <label>E-mail</label>
+                        <div class="input-field col s12">
+                          <input name="email" ngModel placeholder="Email" id="first_name" type="text" class="validate">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <button type="submit" class="waves-effect waves-light btn col s6 m3">Résèrver</button>
+                      </div>
+                      <div class="row">
+                        <button type="submit" class="waves-effect waves-light btn col s6 m3">Résèrver</button>
+                      </div>
+                    </form>
+                    </div>
+                  </div>
+      </div>
+     
+      <div id="test2" class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input name="nomComplet" ngModel placeholder="Prenom" id="first_name" type="text" class="validate">
+          </div>
+        </div>
+      </div>
+<!--Fin du formulaire de résèrvation-->
+      </div>
+      </div>
+</body>
+  
+    
